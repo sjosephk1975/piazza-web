@@ -3,7 +3,6 @@ services:
     name: piazza-web
     env: ruby
     plan: free
-    numInstances: 1
     buildCommand: ./bin/render-build.sh
     startCommand: bundle exec puma -C config/deploy/puma.rb
     envVars:
@@ -13,6 +12,7 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+
 databases:
   - name: piazza-db
     plan: free
